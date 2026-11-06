@@ -2,7 +2,7 @@
 
 ## Autor
 
-Alberto Villar Rodríguez
+athatriel
 
 ## Descripción
 
@@ -15,6 +15,12 @@ Laboratorio de ciberseguridad para la identificación y mitigación de vulnerabi
 El objetivo es demostrar las vulnerabilidades, aplicar contramedidas y verificar su mitigación.
 
 ---
+
+## Documentación
+
+El informe completo del laboratorio se encuentra disponible en:
+
+- `informe/SegBD_Lab01.pdf`
 
 ## Tecnologías utilizadas
 
@@ -242,6 +248,35 @@ curl -X DELETE http://localhost:9200/articulos
 - Aplicación de la paginación en la búsqueda de resultados
 - Rate limit para el login
 - Documentación de intentos de login fallidos
+
+---
+
+## Resultados obtenidos
+
+### Vulnerabilidades demostradas
+
+- NoSQL Injection en autenticación.
+- MongoDB sin autenticación.
+- Elasticsearch expuesto.
+
+### Contramedidas aplicadas
+
+- Validación mediante Pydantic.
+- Activación de autenticación en MongoDB.
+- Creación de usuario con permisos mínimos.
+- Restricción de acceso a Elasticsearch.
+- Paginación de resultados.
+- Rate limiting.
+- Logging de intentos fallidos.
+
+### Verificación
+
+Tras aplicar las contramedidas:
+
+- La NoSQL Injection devuelve HTTP 422.
+- Los accesos inválidos generan HTTP 401.
+- Elasticsearch deja de ser accesible desde el host.
+- Los intentos fallidos quedan registrados en logs.
 
 ---
 
